@@ -7,9 +7,9 @@ class Todo {
    * @param {string} content - 내용(required)
    * @param {boolean} isDone - 완료여부(required)
    * @param {string} category - 카테고리(required)
-   * @param {string[]?} [tags] - 태그(optional)
+   * @param {string[]} [tags] - 태그(optional)
    */
-  constructor(id, content = '', isDone = false, category, tags) {}
+  constructor(id, content, isDone, category, tags) {}
 
   /**
    * 투두 내용을 수정한다.
@@ -61,12 +61,13 @@ class TodoList {
 
   /**
    * 클래스 Todo를 사용하여 투두 객체를 생성한다.
-   * @param {string?} [content] - 내용(required)
+   * @param {string} [content=''] - 내용(optional)
+   * @param {boolean} [isDone=false] - 완료여부(optional)
    * @param {string} category - 카테고리(required)
-   * @param {string[]?} [tags] - 태그(optional)
+   * @param {string[]} [tags] - 태그(optional)
    * @returns {Todo} - 투두 객체 생성
    */
-  createTodo(content, category, tags) {}
+  createTodo(content = '', isDone = false, category, tags) {}
 
   /**
    * 모든 투두 목록을 확인한다.
