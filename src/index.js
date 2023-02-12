@@ -1,15 +1,15 @@
 /**
- * 투두를 객체를 나타내는 클래스
+ * 투두를 객체를 생성하는 클래스
  */
 class Todo {
   /**
    * @param {string} id - 식별 아이디(required)
-   * @param {string} content - 내용(required)
-   * @param {boolean} isDone - 완료여부(required)
+   * @param {string} [content=''] - 내용(optional)
+   * @param {boolean} [isDone=false] - 완료여부(optional)
    * @param {string} category - 카테고리(required)
    * @param {string[]} [tags] - 태그(optional)
    */
-  constructor(id, content, isDone, category, tags) {}
+  constructor(id, content = '', isDone = false, category, tags) {}
 
   /**
    * 투두 내용을 수정한다.
@@ -57,17 +57,18 @@ class Todo {
  * 투두 목록을 나타내는 클래스
  */
 class TodoList {
-  constructor(todoList = []) {}
+  /**
+   * todoList라는 빈 배열 변수를 선언할 예정이다.
+   * @returns {void}
+   */
+  constructor() {}
 
   /**
-   * 클래스 Todo를 사용하여 투두 객체를 생성한다.
-   * @param {string} [content=''] - 내용(optional)
-   * @param {boolean} [isDone=false] - 완료여부(optional)
-   * @param {string} category - 카테고리(required)
-   * @param {string[]} [tags] - 태그(optional)
-   * @returns {Todo} - 투두 객체 생성
+   * class Todo로 인스턴스를 생성한 뒤에 todoList 배열에 푸쉬한다.
+   * @param {Todo} todoObj
+   * @returns {void}
    */
-  createTodo(content = '', isDone = false, category, tags) {}
+  createTodo(todoObj) {}
 
   /**
    * 모든 투두 목록을 확인한다.
@@ -91,6 +92,7 @@ class TodoList {
 
   /**
    * 모든 투두 목록을 삭제한다.
+   * @returns {void}
    */
   deleteAllTodos() {}
 }
