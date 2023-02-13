@@ -1,28 +1,26 @@
-interface Todo {
-  id: string;
+interface TagItem {
+  id: number;
+  content: string;
+}
+
+interface TodoItem {
+  id: number;
   content: string;
   isDone: boolean;
   category: string;
-  tags?: string[];
+  tags?: TagItem[];
 }
 
-interface TodoMethod {
-  updateContent(content: string): void;
-  updateCategory(category: string): void;
-  updateState(): void;
-  updateNewTag(tag: string): void;
-  deleteTag(tag: string): void;
-  deleteAllTags(): void;
-}
-
-interface TodoList {
-  todoList: Todo[];
-}
-
-interface TodoListMethod {
-  createTodo(todoObj: Todo): void;
-  findAllTodos(): Todo[];
-  findTodo(id: string): Todo;
-  deleteTodo(id: string): Todo[];
+interface TodoService {
+  createTodo(content: string): void;
+  createTodoTagById(todoId: number, ...tags: string[]): void;
+  readTodoById(todoId: number): TodoItem;
+  readTodos(): TodoItem[];
+  updateTodoContentById(todoId: number, content: string): void;
+  updateTodoIsDoneById(todoId: number): void;
+  updateTodoCategoryById(todoId: number, category?: string): void;
+  updateTodoTagById(todoId: number, tagId: number, tagContent: string): void;
+  deleteTodoById(todoId: number): void;
   deleteAllTodos(): void;
+  deleteAllTagsById(todoId: number): void;
 }
